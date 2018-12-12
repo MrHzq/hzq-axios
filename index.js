@@ -2,12 +2,12 @@
  * @Author: hzq
  * @Date: 2018-08-28 15:55:55
  * @Last Modified by: hzq
- * @Last Modified time: 2018-12-12 15:54:40
+ * @Last Modified time: 2018-12-12 16:10:01
  * @文件说明: 全局$api插件
  */
 import Service from './service'
 export default {
-    install(Vue, Url, config = { prefix: '/web' }) {
+    install(Vue, Url, config = {}) {
         if (config.baseURL) {
             let service = Service(config)
             let api = {}

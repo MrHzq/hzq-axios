@@ -33,7 +33,7 @@ methods：请求方式，没有该属性时，默认为 post
     baseURL: '',// 测试服务器接口地址：必须
     preURL: '',// 预生产服务器接口地址：可选、无默认
     prodURL: '',// 生产服务器接口地址：可选、无默认
-    prefix: '',// 接口地址前缀：可选、默认('/web')
+    prefix: '',// 接口地址前缀：可选、无默认
     createConfig: {},// axios.create()方法参数：可选、默认({
         baseURL,
         headers: { 'Content-Type': 'application/json; charset=UTF-8' }
