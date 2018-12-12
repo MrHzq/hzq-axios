@@ -2,10 +2,10 @@
  * @Author: hzq
  * @Date: 2018-08-28 15:55:55
  * @Last Modified by: hzq
- * @Last Modified time: 2018-12-12 16:33:58
+ * @Last Modified time: 2018-12-12 17:58:04
  * @文件说明: 全局$api插件
  */
-import Service from './service'
+import Service from './service.min.js'
 export default {
     install(Vue, Url, config = {}) {
         if (config.baseURL) {

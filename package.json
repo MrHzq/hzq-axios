@@ -2,7 +2,7 @@
     "name": "hzq-axios",
     "version": "1.0.5",
     "description": "axios request encapsulation",
-    "main": "index.js",
+    "main": "index.min.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },
