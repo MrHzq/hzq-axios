@@ -2,7 +2,7 @@
  * @Author: hzq
  * @Date: 2018-08-28 15:55:55
  * @Last Modified by: hzq
- * @Last Modified time: 2018-12-12 16:10:01
+ * @Last Modified time: 2018-12-12 16:13:13
  * @文件说明: 全局$api插件
  */
 import Service from './service'
@@ -16,7 +16,8 @@ export default {
                 api[u.name] = (data, headers = {}) => {
                     let params = data || {}
                     if (methods === 'get') params = { params }
-                    return service[methods](config.prefix + u.url, params, {
+                    let prefix = config.prefix || ''
+                    return service[methods](prefix + u.url, params, {
                         headers
                     })
                 }
