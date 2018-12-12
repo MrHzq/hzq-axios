@@ -1,0 +1,24 @@
+{
+    "name": "hzq-axios",
+    "version": "1.0.0",
+    "description": "axios request encapsulation",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MrHzq/hzq-axios.git"
+    },
+    "keywords": [
+        "axios"
+    ],
+    "readme": "使用手册https://github.com/MrHzq/hzq-axios.git",
+    "readmeFilename": "README.md",
+    "author": "hzq",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MrHzq/hzq-axios/issues"
+    },
+    "homepage": "https://github.com/MrHzq/hzq-axios#readme"
+}
