@@ -1,12 +1,12 @@
 # [hzq-axios](https://github.com/MrHzq/hzq-axios)
 
-## 对 axios 请求的二次封装
+## 对 axios 请求的二次封装，封装成Vue插件 this.$api
 
 [GitHub 源码](https://github.com/MrHzq/hzq-axios)
 
 [npm 包](https://www.npmjs.com/package/hzq-axios)
 
-### 使用方式
+### 在 Vue 中使用
 
 #### 0. 请确保已安装`axios`，否则安装 axios：`npm i axios -s`
 
@@ -14,7 +14,7 @@
 
 #### 2. `import hzqAxios from 'hzq-axios'`
 
-#### 3. 在 Vue 中使用：`Vue.prototype.$api = hzqAxios(Url,config)`
+#### 3. `Vue.use(hzqAxios,Url,config)`
 
 ### 参数说明
 
@@ -53,7 +53,3 @@ methods：请求方式，没有该属性时，默认为 post
     respError(error) {},// 响应失败拦截器：可选、无默认
 }
 ```
-
-### 返回值
-
-`hzqAxios(Url,config)`返回：已经封装好的接口对象
