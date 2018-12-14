@@ -1,16 +1,24 @@
 # [hzq-axios](https://github.com/MrHzq/hzq-axios)
 
-## axios 请求封装
+## 对 axios 请求的二次封装
+
+[GitHub 源码](https://github.com/MrHzq/hzq-axios)
+
+[npm 包](https://www.npmjs.com/package/hzq-axios)
 
 ### 使用方式
 
-1.  `npm i hzq-axios -s`
-1.  `import hzqAxios from 'hzq-axios'`
-1.  `Vue.use(hzqAxios,Url,config)`
+#### 0. 请确保已安装`axios`，否则安装 axios：`npm i axios -s`
 
-### 使用说明
+#### 1. `npm i hzq-axios -s`
 
-#### Url：接口地址 Array
+#### 2. `import hzqAxios from 'hzq-axios'`
+
+#### 3. 在 Vue 中使用：`Vue.prototype.$api = hzqAxios(Url,config)`
+
+### 参数说明
+
+#### Url：接口地址 [JSON 格式]
 
 ```ruby
 [
@@ -22,7 +30,7 @@
 ]
 ```
 
-name：方法名称，这样写，就在`.vue`里面这样使用：`this.\$api.logout()`<br>
+name：方法名称，这样写，就在`.vue`里面这样使用：`this.$api.logout()`<br>
 url：请求地址，请根据 swagger 上面的来，不再需要加前缀了，如'/sib/'，因为自动处理了<br>
 methods：请求方式，没有该属性时，默认为 post
 
@@ -45,3 +53,7 @@ methods：请求方式，没有该属性时，默认为 post
     respError(error) {},// 响应失败拦截器：可选、无默认
 }
 ```
+
+### 返回值
+
+`hzqAxios(Url,config)`返回：已经封装好的接口对象
