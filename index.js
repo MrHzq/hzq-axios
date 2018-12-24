@@ -2,7 +2,7 @@
  * @Author: hzq
  * @Date: 2018-08-28 15:55:55
  * @Last Modified by: hzq
- * @Last Modified time: 2018-12-14 14:27:08
+ * @Last Modified time: 2018-12-24 15:36:44
  * @文件说明: 全局$api插件
  */
 import Service from './service.min.js'
@@ -16,8 +16,7 @@ export default {
                 api[u.name] = (data, headers = {}) => {
                     let params = data || {}
                     if (methods === 'get') params = { params }
-                    let prefix = config.prefix || '/web'
-                    return service[methods](prefix + u.url, params, {
+                    return service[methods](u.url, params, {
                         headers
                     })
                 }
