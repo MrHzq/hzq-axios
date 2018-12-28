@@ -43,7 +43,7 @@ export default [
 ]
 ```
 
-name：方法名称（`请保持唯一性`），这样写，就在`.vue`里面这样使用：`this.$api.logout()`<br>
+name：方法名称（`请保持唯一性`），这样写，就在`.vue`里面这样使用：`this.$api.login()`<br>
 url：请求地址，请根据 swagger 上面的来，不再需要加前缀了，如'/sib/'，因为自动处理了<br>
 methods：请求方式，没有该属性时，默认为 post
 
@@ -51,14 +51,15 @@ methods：请求方式，没有该属性时，默认为 post
 
 ```ruby
 {
-    baseURL: '',// 测试服务器接口地址：必须
+    baseURL: '',// 测试服务器接口地址：必传
     preURL: '',// 预生产服务器接口地址：可选、无默认
     prodURL: '',// 生产服务器接口地址：可选、无默认
     createConfig: {},// axios.create()方法参数：可选、默认({
         baseURL,
         headers: { 'Content-Type': 'application/json; charset=UTF-8' }
     })
-    beforeRequest(config) {// 请求拦截器：可选、无默认；使用了话，必须要在末尾加上：return config
+    beforeRequest(config) {
+        // 请求拦截器：可选、无默认；使用了话，必须要在末尾加上：return config
         return config
     },
     respSuccess(resp) {},// 响应成功拦截器：可选、无默认
@@ -74,6 +75,7 @@ let apiUrl = []
 找到接口文件夹下以.js命名的所有文件，我这的接口文件夹目录为 src/assets/axiosUrl
 
 const requireComponent = require.context('src/assets/axiosUrl', true, /\.js$/)
+
 requireComponent.keys().map(fileName => {
     let prefix = ''
     if (fileName.match(/\//g).length > 1) {
