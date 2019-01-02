@@ -2,24 +2,29 @@
  * @Author: hzq
  * @Date: 2018-08-28 15:55:55
  * @Last Modified by: hzq
- * @Last Modified time: 2018-12-24 15:36:44
+ * @Last Modified time: 2019-01-02 13:44:28
  * @文件说明: 全局$api插件
  */
-import Service from './service.min.js'
+import Service from './service.js'
 export default {
-    install(Vue, Url, config = {}) {
+    install(Vue, RC, config = {}) {
         if (config.baseURL) {
-            let service = Service(config)
             let api = {}
-            Url.map(u => {
-                let methods = u.methods || 'post'
-                api[u.name] = (data, headers = {}) => {
-                    let params = data || {}
-                    if (methods === 'get') params = { params }
-                    return service[methods](u.url, params, {
-                        headers
-                    })
-                }
+            const service = Service(config)
+            RC.keys().forEach(fileName => {
+                const split = fileName.split(/\//g)
+                // 如果长度大于1，则表明访问接口是需要前缀的，则自动获取到前缀并地址中加上
+                let prefix = split.length > 2 ? '/' + split[1] : ''
+                RC(fileName).default.forEach(u => {
+                    let methods = u.methods || 'post'
+                    api[u.name] = (data, headers = {}) => {
+                        let params = data || {}
+                        if (methods === 'get') params = { params }
+                        return service[methods](prefix + u.url, params, {
+                            headers
+                        })
+                    }
+                })
             })
             Vue.$api = api
             Vue.prototype.$api = api
