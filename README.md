@@ -70,28 +70,7 @@ methods：请求方式，没有该属性时，默认为 post
 ### 实例
 
 ```ruby
-let apiUrl = []
-
-找到接口文件夹下以.js命名的所有文件，我这的接口文件夹目录为 src/assets/axiosUrl
-
-const requireComponent = require.context('src/assets/axiosUrl', true, /\.js$/)
-
-requireComponent.keys().map(fileName => {
-    let prefix = ''
-    if (fileName.match(/\//g).length > 1) {
-        如果长度大于1，则表明访问接口是需要前缀的，则自动获取到前缀并地址中加上
-        prefix = '/' + fileName.split(/\//g)[1]
-    }
-
-    let arr = requireComponent(fileName).default.map(u => {
-        u.url = prefix + u.url
-        return u
-    })
-    apiUrl.push(...arr)
-})
-console.log(apiUrl)
-
-Vue.use(hzqAxios, apiUrl, {
+Vue.use(hzqAxios, require.context('src/axiosUrl', true, /\.js$/), {
     baseURL: 'https://www.xxx.com'
 })
 ```
