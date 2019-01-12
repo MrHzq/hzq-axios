@@ -1,6 +1,6 @@
 {
     "name": "hzq-axios",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "description": "axios request encapsulation",
     "main": "index.min.js",
     "scripts": {
