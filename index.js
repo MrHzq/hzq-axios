@@ -2,7 +2,7 @@
  * @Author: hzq
  * @Date: 2018-08-28 15:55:55
  * @Last Modified by: hzq
- * @Last Modified time: 2019-01-02 13:44:28
+ * @Last Modified time: 2019-01-12 17:49:49
  * @文件说明: 全局$api插件
  */
 import Service from './service.js'
