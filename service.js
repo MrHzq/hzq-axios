@@ -2,7 +2,7 @@
  * @Author: hzq
  * @Date: 2018-08-28 16:05:27
  * @Last Modified by: hzq
- * @Last Modified time: 2018-12-12 15:18:18
+ * @Last Modified time: 2019-01-22 11:27:50
  * @文件说明: 请求配置
  */
 import axios from 'axios'
@@ -65,7 +65,7 @@ export default axiosConfig => {
                 if (typeof axiosConfig.respError === 'function') {
                     axiosConfig.respError(error)
                 }
-                return Promise.reject(error.response.data)
+                return Promise.reject(error.response)
             }
         }
     )
