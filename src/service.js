@@ -22,6 +22,7 @@ export default axiosConfig => {
     // 创建实例时设置配置的默认值
     let _createConfig = {
         baseURL,
+        timeout: 15000,
         headers: { 'Content-Type': 'application/json; charset=UTF-8' }
     }
     if (typeof axiosConfig.createConfig === 'object') {
